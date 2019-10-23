@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project_Management_System {
-    
-    
-    public partial class login {
-        
+namespace Project_Management_System
+{
+
+
+    public partial class login
+    {
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Project_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Login_username control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Project_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Login_username;
-        
+
         /// <summary>
         /// Login_password control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Project_Management_System {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Login_password;
-        
+
         /// <summary>
         /// Login_button control.
         /// </summary>

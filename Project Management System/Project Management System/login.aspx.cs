@@ -14,7 +14,7 @@ namespace Project_Management_System
 {
     public partial class login : System.Web.UI.Page
     {
-        private String connection = "server=localhost;user id=root; password=root;persistsecurityinfo=True;database=project";
+        private String connection = @"Data Source=(localdb)\MSSQLlocalDB;Initial Catalog=project;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,27 +23,16 @@ namespace Project_Management_System
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            var query = "Select password from users where username = @username";
+            var query = "Select password, salt from Users where username = @username";
             using (var conn = new SqlConnection(connection))
             {
                 using (var cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.Add("@username", SqlDbType.VarChar);
                     cmd.Parameters["@username"].Value = Convert.ToString(Login_username.Text);
-                    try
-                    {
-                        conn.Open();
-                    }
-                    catch (SqlException ex)
-                    {
-                        Label1.Text+=$"Can not open connection ! ErrorCode: {ex.ErrorCode} Error: {ex.Message}";
-                    }
-                    catch (Exception ex)
-                    {
-                        Label1.Text+=$"Can not open connection ! Error: {ex.Message}";
-                    }
+                    conn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
-                    if(!reader.HasRows)
+                    if(!reader.Read())
                     {
                         Response.Redirect("./login.aspx");
                     }
@@ -55,10 +44,12 @@ namespace Project_Management_System
                         string hashed = Convert.ToBase64String(sha.ComputeHash(Encoding.ASCII.GetBytes(Login_password.Text)));
                         if (password == hashed)
                         {
+                            Label1.Text += hashed + " " + password;
                             Response.Redirect("./dashboard.aspx");
                         }
                         else
                         {
+                            Label1.Text += hashed + " " + password;
                             Response.Redirect("./login.aspx");
                         }
                     }

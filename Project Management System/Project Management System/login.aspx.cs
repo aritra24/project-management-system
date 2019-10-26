@@ -23,7 +23,7 @@ namespace Project_Management_System
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            var query = "Select password, salt from Users where username = @username";
+            var query = "Select * from Users where username = @username";
             using (var conn = new SqlConnection(connection))
             {
                 using (var cmd = new SqlCommand(query, conn))
@@ -40,12 +40,17 @@ namespace Project_Management_System
                     {
                         string password = (string)reader["password"];
                         string salt = (string)reader["salt"];
+                        int access = (int)reader["accessLevel"];
                         HashAlgorithm sha = new SHA1CryptoServiceProvider();
                         string hashed = Convert.ToBase64String(sha.ComputeHash(Encoding.ASCII.GetBytes(Login_password.Text)));
                         if (password == hashed)
                         {
-                            Label1.Text += hashed + " " + password;
-                            Response.Redirect("./dashboard.aspx");
+                            Session["access"] = access;
+                            Session["username"] = reader["username"];
+                            if(access > 0)
+                                Response.Redirect("./dashboard.aspx");
+                            else if(access > 10)
+                                Response.Redirect("./admin.aspx");
                         }
                         else
                         {

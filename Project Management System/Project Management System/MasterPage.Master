@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Project_Management_System.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="master.css" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <ul>
+                <li><a href="default.aspx">Home</a></li>
+                <li><a href="news.aspx">News</a></li>
+                <li><a href="contact.aspx">Contact</a></li>
+                 <% if (Session["access"]!=null && (int)Session["access"] > 10)
+                     {%>
+                 <li><a href="admin.aspx">Admin</a></li>
+                 <%} %>
+                <li><a href="about.aspx">About</a></li>
+                 <li style="float:right"><a class="active" href="logout.aspx">Logout</a></li>
+            </ul>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

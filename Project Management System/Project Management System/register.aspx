@@ -17,13 +17,15 @@
       <div class="input-group input-group-lg">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
         <asp:TextBox ID="Login_username" runat="server" textmode="SingleLine" CSSclass="form-control" placeholder="Username or email" />
-          </div>
+        <asp:RequiredFieldValidator ControlToValidate="Login_username" ErrorMessage="Enter password" runat="server"></asp:RequiredFieldValidator>  
+      </div>
         <div class="input-group input-group-lg">
           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
           <asp:TextBox ID="Login_password" runat="server" textmode="password" CSSclass="form-control" placeholder="Password" />
+           <asp:RequiredFieldValidator ControlToValidate="Login_password" ErrorMessage="Enter password" runat="server"></asp:RequiredFieldValidator>
         </div>
 
-        <asp:Button ID="Login_button" runat="server" CSSclass="float" Text="Login" OnClick="Login_Click"></asp:Button>
+        <asp:Button ID="Login_button" runat="server" CSSclass="float" Text="Register" OnClick="Login_Click"></asp:Button>
        </form>
  		</div>
  </div>

@@ -27,7 +27,22 @@ namespace Project_Management_System
 
         }
 
-        
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            HttpCookie cookie = Request.Cookies["theme"];
+            if (cookie["theme"].ToString() == "light")
+            {
+                Page.Theme = "light";
+                // cb1.Checked = false;
+            }
+            else
+            {
+                Page.Theme = "dark";
+                //cb1.Checked = true;
+            }
+        }
+
+
         private void BindGrid()
         {
             using (SqlConnection con = new SqlConnection(connection))

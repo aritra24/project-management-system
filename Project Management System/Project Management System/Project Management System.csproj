@@ -75,6 +75,7 @@
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
     <Content Include="App_Themes\light\light.skin" />
+    <Content Include="App_Themes\dark\dark.skin" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -11,7 +11,7 @@ namespace Project_Management_System
 {
     public partial class view : System.Web.UI.Page
     {
-        private int slno=13;
+        private int slno;
         private String connection = @"Data Source=(localdb)\MSSQLlocalDB;Initial Catalog=project;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,17 +20,11 @@ namespace Project_Management_System
             {
                 Response.Redirect("login.aspx");
             }
+            string s = Request.QueryString["id"];
+            slno = Int32.Parse(s);
             if (!IsPostBack)
             {
-                try
-                {
-                    string s = Request.QueryString["id"];
-                    slno = Int32.Parse(s);
-                }
-                catch
-                {
-                    slno = 13;
-                }
+                
                 this.BindGrid();
             }
         }
@@ -51,6 +45,10 @@ namespace Project_Management_System
                             sda.Fill(dt);
                             title1.Text = dt.Rows[0].ItemArray[1].ToString();
                             Description.Text = dt.Rows[0].ItemArray[2].ToString();
+                            Duration.Text = dt.Rows[0].ItemArray[3].ToString();
+                            Client.Text = dt.Rows[0].ItemArray[4].ToString();
+                            PostedOn.Text = dt.Rows[0].ItemArray[5].ToString();
+                            ReviseCount.Text = dt.Rows[0].ItemArray[6].ToString();
 
                         }
                     }
@@ -58,7 +56,7 @@ namespace Project_Management_System
             }
             using (SqlConnection con = new SqlConnection(connection))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT username, comment FROM Comments, Users WHERE project=@id AND Users.Id=Comments.userID"))
+                using (SqlCommand cmd = new SqlCommand("SELECT username, comment FROM Comments, Users WHERE project=@id AND Users.Id=Comments.userID AND state=1"))
                 {
                     cmd.Parameters.AddWithValue("@id", slno);
                     using (SqlDataAdapter sda = new SqlDataAdapter())

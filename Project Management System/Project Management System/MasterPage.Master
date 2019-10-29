@@ -19,6 +19,7 @@
                      {%>
                  <li><a href="admin.aspx">Admin</a></li>
                  <%} %>
+                 <li><p><asp:CheckBox ID="cb1" AutoPostBack="true" runat="server" OnCheckedChanged="Unnamed_CheckedChanged"/>Light Theme</p></li>
                  <li style="float:right"><a class="active" href="logout.aspx">Logout</a></li>
             </ul>
         </div>

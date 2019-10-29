@@ -20,10 +20,11 @@ namespace Project_Management_System
             {
                 Response.Redirect("login.aspx");
             }
+            string s = Request.QueryString["id"];
+            slno = Int32.Parse(s);
             if (!IsPostBack)
             {
-                string s = Request.QueryString["id"];
-                slno = Int32.Parse(s);
+                
                 this.BindGrid();
             }
         }

@@ -16,7 +16,7 @@ namespace Project_Management_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["access"] == null || (int)Session["access"] < 20)
+            if (Session["access"] == null || (int)Session["access"] < 10)
             {
                 Response.Redirect("login.aspx");
             }
@@ -58,7 +58,7 @@ namespace Project_Management_System
             }
             using (SqlConnection con = new SqlConnection(connection))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT username, coment FROM Comments, Users WHERE project=@id AND Users.Id=Comments.userID"))
+                using (SqlCommand cmd = new SqlCommand("SELECT username, comment FROM Comments, Users WHERE project=@id AND Users.Id=Comments.userID"))
                 {
                     cmd.Parameters.AddWithValue("@id", slno);
                     using (SqlDataAdapter sda = new SqlDataAdapter())

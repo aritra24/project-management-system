@@ -45,7 +45,7 @@ namespace Project_Management_System
                         string salt = (string)reader["salt"];
                         int access = (int)reader["accessLevel"];
                         HashAlgorithm sha = new SHA1CryptoServiceProvider();
-                        string hashed = Convert.ToBase64String(sha.ComputeHash(Encoding.ASCII.GetBytes(Login_password.Text)));
+                        string hashed = Convert.ToBase64String(sha.ComputeHash(Encoding.ASCII.GetBytes(Login_password.Text+salt)));
                         if (password == hashed)
                         {
                             Session["access"] = access;
@@ -58,7 +58,7 @@ namespace Project_Management_System
                         }
                         else
                         {
-                            Label1.Text += hashed + " " + password;
+                            Label1.Text = "Login Failed";
                             Response.Redirect("./login.aspx");
                         }
                     }

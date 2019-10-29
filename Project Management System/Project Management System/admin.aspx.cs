@@ -15,6 +15,10 @@ namespace Project_Management_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["access"] == null || (int)Session["access"] < 20)
+            {
+                Response.Redirect("login.aspx");
+            }
             if (!IsPostBack)
             {
                 this.BindGrid();

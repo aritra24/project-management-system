@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Project_Management_System.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="Project_Management_System.register" %>
 
 <!DOCTYPE html>
 
@@ -11,18 +11,16 @@
 <body>
     <div class="login">
   <div class="heading">
-    <h2>Sign in</h2>
+    <h2>Register</h2>
     <form runat="server" action="#">
         <asp:Label ID="Label1" runat="server"></asp:Label>
       <div class="input-group input-group-lg">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
         <asp:TextBox ID="Login_username" runat="server" textmode="SingleLine" CSSclass="form-control" placeholder="Username or email" />
-        <asp:RequiredFieldValidator ControlToValidate="Login_username" runat="server"></asp:RequiredFieldValidator>  
-      </div>
+          </div>
         <div class="input-group input-group-lg">
           <span class="input-group-addon"><i class="fa fa-lock"></i></span>
           <asp:TextBox ID="Login_password" runat="server" textmode="password" CSSclass="form-control" placeholder="Password" />
-           <asp:RequiredFieldValidator ControlToValidate="Login_password" runat="server"></asp:RequiredFieldValidator>
         </div>
 
         <asp:Button ID="Login_button" runat="server" CSSclass="float" Text="Login" OnClick="Login_Click"></asp:Button>

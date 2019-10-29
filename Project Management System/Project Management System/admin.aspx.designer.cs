@@ -15,6 +15,15 @@ namespace Project_Management_System
     {
 
         /// <summary>
+        /// new control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button @new;
+
+        /// <summary>
         /// AllProjects control.
         /// </summary>
         /// <remarks>
@@ -22,5 +31,14 @@ namespace Project_Management_System
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView AllProjects;
+
+        /// <summary>
+        /// Notifications control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Notifications;
     }
 }

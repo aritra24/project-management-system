@@ -13,14 +13,12 @@
     <form id="form1" runat="server">
         <div>
              <ul>
-                <li><a href="default.aspx">Home</a></li>
-                <li><a href="news.aspx">News</a></li>
-                <li><a href="contact.aspx">Contact</a></li>
+                <li><a href="dashboard.aspx">Home</a></li>
+                <li><a href="comments.aspx">Comments</a></li>
                  <% if (Session["access"]!=null && (int)Session["access"] > 10)
                      {%>
                  <li><a href="admin.aspx">Admin</a></li>
                  <%} %>
-                <li><a href="about.aspx">About</a></li>
                  <li style="float:right"><a class="active" href="logout.aspx">Logout</a></li>
             </ul>
         </div>

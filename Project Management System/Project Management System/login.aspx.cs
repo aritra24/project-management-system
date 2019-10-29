@@ -18,7 +18,10 @@ namespace Project_Management_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] != null)
+            {
+                Response.Redirect("dashboard.aspx");
+            }
         }
 
         protected void Login_Click(object sender, EventArgs e)
@@ -47,6 +50,7 @@ namespace Project_Management_System
                         {
                             Session["access"] = access;
                             Session["username"] = reader["username"];
+                            Session["id"] = reader["id"];
                             if(access > 0)
                                 Response.Redirect("./dashboard.aspx");
                             else if(access > 10)

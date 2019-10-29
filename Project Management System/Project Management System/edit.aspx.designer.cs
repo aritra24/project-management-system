@@ -11,16 +11,25 @@ namespace Project_Management_System
 {
 
 
-    public partial class dashboard
+    public partial class edit
     {
 
         /// <summary>
-        /// AllProjects control.
+        /// title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllProjects;
+        protected global::System.Web.UI.WebControls.Label title;
+
+        /// <summary>
+        /// view_project control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView view_project;
     }
 }

@@ -28,7 +28,7 @@
     </asp:GridView>
             </div>
         <br />
-        <div style="align-content:flex-end;  display:flex;">
+        <div>
         <asp:TextBox runat="server" ID="Search"></asp:TextBox>
         <asp:Button runat="server" Text="Search"  OnClick="GenerateReport" />
         <br />

@@ -26,6 +26,32 @@ namespace Project_Management_System
         }
 
 
+        protected void GenerateReport(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(connection))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Projects WHERE description LIKE '%' + @comment + '%';"))
+                {
+                    cmd.Parameters.AddWithValue("@comment", Search.Text);
+
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+
+                            report.DataSource = dt;
+                            report.DataBind();
+
+                        }
+                    }
+                }
+            }
+        }
+
+
         private void BindGrid()
         {
             using (SqlConnection con = new SqlConnection(connection))

@@ -27,5 +27,13 @@
         </Columns>
     </asp:GridView>
             </div>
-    </div>
+        <br />
+        <div style="align-content:flex-end;  display:flex;">
+        <asp:TextBox runat="server" ID="Search"></asp:TextBox>
+        <asp:Button runat="server" Text="Search"  OnClick="GenerateReport" />
+        <br />
+        <asp:Label ID="count" runat="server"></asp:Label><br />
+        <asp:GridView ID="report" runat="server"></asp:GridView>
+         </div>
+   </div>
 </asp:Content>
